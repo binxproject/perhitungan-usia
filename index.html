@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Perhitungan Usia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+
+            margin: 0 auto;
+            /* background-color: #eaeaea; */
+        }
+
+        .content {
+            margin-top: 300px;
+            display: flex;
+            flex-direction: column;
+            /* border: 1px solid crimson; */
+            padding: 20px;
+            background-color: #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .input {
+            margin-top: 10px;
+            padding: 10px;
+            -moz-appearance: textfield;
+            /* Untuk Firefox */
+            -webkit-appearance: none;
+            /* Untuk Chrome, Safari, Opera */
+            appearance: none;
+            /* Untuk browser yang mendukung standard CSS */
+        }
+
+        .input::-webkit-inner-spin-button,
+        .input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            /* Menghilangkan margin spinner */
+        }
+
+        .input::placeholder {
+            font-style: italic;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        .button {
+            margin-top: 10px;
+            background-color: #475569;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #334155;
+        }
+
+        .button:active {
+            background-color: #1e293b;
+        }
+
+        .hasil {
+            margin-top: 20px;
+            color: #dc2626;
+        }
+
+        @media screen and (max-width:576px) {
+            .container {
+                width: 100%;
+                /* max-width: 300px; */
+            }
+
+            .content {
+                margin: 50px auto ;
+                /* margin-top: 50px;  */
+                /* Kurangi margin-top agar tidak terlalu jauh ke bawah di layar kecil */
+                padding: 15px;
+                /* width: 100%; */
+                max-width: 300px;
+                border-radius: 8;
+            }
+
+            .label {
+                font-size: 18px; /* Ukuran font lebih kecil di layar mobile */
+            }
+
+            .input {
+                padding: 8px;
+            }
+
+            .button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <label for="input" class="label">Cek Usia</label>
+            <input type="number" placeholder="Masukkan tahun kelahiran..." class="input" id="input">
+            <button class="button" onclick="buttonKlik()">Cek</button>
+            <p class="hasil" id="hasil"></p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+
+        function buttonKlik() {
+            const getInput = document.getElementById('input');
+            let input = getInput.value;
+
+            const now = new Date().getFullYear();
+            let perhitungan = now - input;
+
+            const hasil = document.getElementById('hasil');
+            hasil.innerHTML = 'Usia anda saat ini adalah ' + perhitungan;
+            // alert(hasil);
+        }
+    </script>
+</body>
+
+</html>
